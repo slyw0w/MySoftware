@@ -9,12 +9,13 @@ pipeline {
         }
         stage('Test NewButton') {
             steps {
-                bat 'python -c "from button import click; click()"'
+                bat 'echo %PATH%'
+                bat 'set PATH=C:\\Path\\To\\Your\\Python;%PATH% && python -c "from button import click; click()"'
             }
         }
         stage('Test NewScreen') {
             steps {
-                bat 'python -c "from screen import welcome; welcome()"'
+                bat 'set PATH=C:\\Path\\To\\Your\\Python;%PATH% && python -c "from screen import welcome; welcome()"'
             }
         }
     }
