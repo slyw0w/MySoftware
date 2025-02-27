@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Test NewButton') {
             steps {
-                sh 'python -c "from button import click; click()"'
+                sh 'python3 -c "from button import click; click()"'
             }
         }
         stage('Test NewScreen') {
             steps {
-                sh 'python -c "from screen import welcome; welcome()"'
+                sh 'python3 -c "from screen import welcome; welcome()"'
             }
         }
     }
