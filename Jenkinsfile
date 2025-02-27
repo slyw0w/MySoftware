@@ -4,27 +4,16 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                // Checkout the code from the repository
+                git(url: 'https://github.com/slyw0w/MySoftware.git', branch: 'main')
             }
         }
-        stage('Test NewButton') {
+        stage('Run Tests') {
             steps {
+                echo "Running tests..."
                 sh 'python3 -c "from button import click; click()"'
-            }
-        }
-        stage('Test NewScreen') {
-            steps {
                 sh 'python3 -c "from screen import welcome; welcome()"'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed!'
         }
     }
 }
