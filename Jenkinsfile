@@ -4,31 +4,27 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/slyw0w/MySoftware.git', branch: 'main'
+                checkout scm
             }
         }
-        stage('Test Button') {
+        stage('Test NewButton') {
             steps {
-                bat """
-                C:\\Users\\nyyif\\AppData\\Local\\Programs\\Python\\Python39\\python.exe -c "import button; button.click(); print('Button test passed')"
-                """
+                sh 'python -c "from button import click; click()"'
             }
         }
-        stage('Test Screen') {
+        stage('Test NewScreen') {
             steps {
-                bat """
-                C:\\Users\\nyyif\\AppData\\Local\\Programs\\Python\\Python39\\python.exe -c "import screen; screen.welcome(); print('Screen test passed')"
-                """
+                sh 'python -c "from screen import welcome; welcome()"'
             }
         }
     }
 
     post {
         success {
-            echo 'Pipeline completed successfully'
+            echo 'Pipeline completed successfully!'
         }
         failure {
-            echo 'Pipeline failed'
+            echo 'Pipeline failed!'
         }
     }
 }
