@@ -16,4 +16,4 @@ if [  -f /usr/share/jenkins/plugins.txt ]; then
 fi
 
 # Start jenkins
-exec /usr/local/bin/jenkins.sh "$@"
+exec /usr/local/bin/jenkins.sh "$@
